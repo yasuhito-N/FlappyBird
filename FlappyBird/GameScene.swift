@@ -15,10 +15,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var bird:SKSpriteNode!
     
     // 衝突判定カテゴリー ↓追加
-    let birdCategory: UInt32 = 1 << 0       // 0...00001
-    let groundCategory: UInt32 = 1 << 1     // 0...00010
-    let wallCategory: UInt32 = 1 << 2       // 0...00100
-    let scoreCategory: UInt32 = 1 << 3      // 0...01000
+    let birdCategory: UInt32 = 1 << 0
+    let groundCategory: UInt32 = 1 << 1
+    let wallCategory: UInt32 = 1 << 2
+    let scoreCategory: UInt32 = 1 << 3
     
     // スコア
     var score = 0
@@ -44,14 +44,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wallNode = SKNode()
         addChild(wallNode)
         
-        //スコア用ノード
-        scoreLabelNode = SKLabelNode()
-        bestScoreLabelNode = SKLabelNode()
-        
         setupGround()
         setupCloud()
         setupWall()
         setupBird()
+        setupScoreLabel()
     }
     
     func setupGround() {
