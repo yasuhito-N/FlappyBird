@@ -245,8 +245,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // 衝突のカテゴリー設定
         bird.physicsBody?.categoryBitMask = birdCategory
-        bird.physicsBody?.collisionBitMask = groundCategory | wallCategory | itemCategory
-        bird.physicsBody?.contactTestBitMask = groundCategory | wallCategory | itemCategory
+        bird.physicsBody?.collisionBitMask = groundCategory | wallCategory
+        bird.physicsBody?.contactTestBitMask = (groundCategory | wallCategory) | itemCategory
         
         // アニメーションを設定
         bird.runAction(flap)
@@ -272,7 +272,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             // 四角アイテムに物理演算を設定する
             squareItem.physicsBody = SKPhysicsBody(rectangleOfSize: squareItem.size)
-            squareItem.physicsBody?.categoryBitMask = self.scoreCategory
+            squareItem.physicsBody?.categoryBitMask = self.itemCategory
             squareItem.physicsBody?.contactTestBitMask = self.birdCategory
             
             // 衝突の時に動かないように設定する
