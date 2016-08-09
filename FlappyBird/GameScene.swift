@@ -241,7 +241,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // 物理演算を設定
         bird.physicsBody = SKPhysicsBody(circleOfRadius: bird.size.height / 2.0)
-        
+
         // 衝突した時に回転させない
         bird.physicsBody?.allowsRotation = false
         
